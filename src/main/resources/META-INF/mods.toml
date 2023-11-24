@@ -1,30 +1,29 @@
 
 modLoader = "javafml"
-loaderVersion = "[43,)"
-license = "All Rights Reserved"
+loaderVersion = "${loader_version_range}"
+license = "${mod_license}"
 issueTrackerURL="https://github.com/lanAnderson/IanAnderson-Tweaks/issues"
 
 [[mods]]
-modId = "iantweaks"
-version = "${file.jarVersion}"
-displayName = "IanAnderson Tweaks"
-displayURL="https://github.com/lanAnderson/IanAnderson-Tweaks"
-logoFile="iantweaks.png"
-authors = "IanAnderson"
-description = '''
-Tweaks for IanAnderson's Modpack
-'''
+    modId="${mod_id}"
+    version="${mod_version}"
+    displayName="${mod_name}"
+    displayURL="https://github.com/lanAnderson/IanAnderson-Tweaks"
+    authors="${mod_authors}"
+    logoFile="iantweaks.png"
 
-[[dependencies.iantweaks]]
-modId = "forge"
-mandatory = true
-versionRange = "[43,)"
-ordering = "NONE"
-side = "BOTH"
+    description='''${mod_description}'''
 
-[[dependencies.iantweaks]]
-modId = "minecraft"
-mandatory = true
-versionRange = "[1.19.2,1.20)"
-ordering = "NONE"
-side = "BOTH"
+[[dependencies.${mod_id}]]
+    modId="forge"
+    mandatory=true
+    versionRange="${forge_version_range}"
+    ordering="NONE"
+    side="BOTH"
+
+[[dependencies.${mod_id}]]
+    modId="minecraft"
+    mandatory=true
+    versionRange="${minecraft_version_range}"
+    ordering="NONE"
+    side="BOTH"

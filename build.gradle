@@ -98,6 +98,7 @@ dependencies {
     compileOnly fg.deobf("com.klikli_dev:modonomicon:${modonomicon_mc_version}-${modonomicon_version}")
     runtimeOnly fg.deobf("com.klikli_dev:modonomicon:${modonomicon_mc_version}-${modonomicon_version}")
 
+    implementation fg.deobf("curse.maven:plasmo-voice-467028:4792697")
 }
 
 jar {

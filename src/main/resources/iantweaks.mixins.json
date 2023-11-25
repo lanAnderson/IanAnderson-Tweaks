@@ -5,6 +5,7 @@
   "compatibilityLevel": "JAVA_8",
   "refmap": "iantweaks.refmap.json",
   "mixins": [
+    "plasmo.HudIconRendererMixin"
   ],
   "client": [
   ],

@@ -13,7 +13,6 @@ plugins {
     id 'net.minecraftforge.gradle' version '[6.0,6.2)'
     id 'org.parchmentmc.librarian.forgegradle' version '1.+'
     id 'net.darkhax.curseforgegradle' version '1.1.16'
-    id "com.modrinth.minotaur" version "2.+"
 }
 
 apply plugin: 'org.spongepowered.mixin'
@@ -155,39 +154,19 @@ tasks.withType(JavaCompile).configureEach {
     options.encoding = 'UTF-8' // Use the UTF-8 charset for Java compilation
 }
 
-//String changelogText = projectDir.toPath().getParent().resolve("CHANGELOG.md").getText('UTF-8')
-
-modrinth {
-    //int firstHeading = changelogText.indexOf("## [")
-    //int nextHeading = changelogText.indexOf("## [", firstHeading+1)
-    //String recentChangelogText = changelogText.substring(firstHeading,nextHeading)
-
-    debugMode = false
-    token = System.getenv("MODRINTH_TOKEN")
-    projectId = modrinth_forge_id
-    versionNumber = minecraft_version + "-" + version
-    versionName = base.archivesName.get() + "-" + mod_version
-    versionType = "release"
-    uploadFile = jar
-
-    //changelog = recentChangelogText
-
-    dependencies {
-        required.project "plasmo-voice"
-    }
-}
+String changelogText = projectDir.toPath().resolve("CHANGELOG.md").getText('UTF-8')
 
 task publishCurseForge(type: net.darkhax.curseforgegradle.TaskPublishCurseForge){
-    //int firstHeading = changelogText.indexOf("## [")
-    //int nextHeading = changelogText.indexOf("## [", firstHeading+1)
-    //String recentChangelogText = changelogText.substring(firstHeading,nextHeading)
+    int firstHeading = changelogText.indexOf("## [")
+    int nextHeading = changelogText.indexOf("## [", firstHeading+1)
+    String recentChangelogText = changelogText.substring(firstHeading,nextHeading)
 
     debugMode = false
     apiToken = System.getenv("CURSEFORGE_TOKEN")
 
     def mainFile = upload(curseforge_forge_id, jar)
-    //mainFile.changelogType = "markdown"
-    //mainFile.changelog = recentChangelogText
+    mainFile.changelogType = "markdown"
+    mainFile.changelog = recentChangelogText
     mainFile.releaseType = "release"
 
     mainFile.addGameVersion("Forge")

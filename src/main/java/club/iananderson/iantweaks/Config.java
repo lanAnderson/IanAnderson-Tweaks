@@ -26,7 +26,7 @@ public class Config
             PLASMO_ICON_SIZE = BUILDER
                     .comment("Icon size of the Plasmo Voice HUD icons\n" +
                             "Original size is 16")
-                    .defineInRange("plasmoIconSize", 12, 0, 16);
+                    .defineInRange("plasmoIconSize", 16, 0, 16);
 
             PLASMO_VERTICAL_OFFSET = BUILDER
                     .comment("Vertical offset of the Plasmo Voice HUD icons\n" +

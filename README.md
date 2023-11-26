@@ -1,6 +1,6 @@
 # IanAnderson-Tweaks
 
-Modifications for various mods. Current features are:
+Modifications for various mods for [IanAnderson's Modpack](https://www.curseforge.com/minecraft/modpacks/ianandersons-modpack). Current features are:
 
 ### PlasmoVoice:
   - Added ability to change the icon size for the HUD

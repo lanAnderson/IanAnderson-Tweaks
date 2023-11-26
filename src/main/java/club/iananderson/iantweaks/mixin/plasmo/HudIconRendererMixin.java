@@ -2,7 +2,6 @@ package club.iananderson.iantweaks.mixin.plasmo;
 
 import dev.yurisuika.raised.client.option.RaisedConfig;
 import net.minecraft.client.Minecraft;
-import net.minecraft.client.gui.components.BossHealthOverlay;
 import net.minecraftforge.fml.ModList;
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;

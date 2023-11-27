@@ -9,6 +9,7 @@
   ],
   "client": [
   ],
+  "plugin": "club.iananderson.iantweaks.mixin.IanTweaksMixinPlugin",
   "injectors": {
     "defaultRequire": 1
   }

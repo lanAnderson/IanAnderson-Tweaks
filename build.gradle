@@ -1,3 +1,5 @@
+import net.darkhax.curseforgegradle.TaskPublishCurseForge
+
 buildscript {
     repositories {
         maven { url = 'https://repo.spongepowered.org/repository/maven-public/' }
@@ -13,6 +15,8 @@ plugins {
     id 'net.minecraftforge.gradle' version '[6.0,6.2)'
     id 'org.parchmentmc.librarian.forgegradle' version '1.+'
     id 'net.darkhax.curseforgegradle' version '1.1.16'
+    id 'org.jetbrains.kotlin.jvm' version '1.9.20'
+    id 'org.jetbrains.kotlin.plugin.serialization' version '1.9.20'
 }
 
 apply plugin: 'org.spongepowered.mixin'
@@ -67,6 +71,7 @@ minecraft {
 mixin {
     add sourceSets.main, "${mod_id}.refmap.json"
     config "${mod_id}.mixins.json"
+    quiet
 }
 
 sourceSets.main.resources { srcDir 'src/generated/resources' }
@@ -79,15 +84,17 @@ repositories {
             includeGroup "curse.maven"
         }
     }
-
     maven {
         name = 'ParchmentMC'
         url = 'https://maven.parchmentmc.org'
     }
-
     maven {
         name = "KliKli Dev Repsy Maven"
         url = "https://repo.repsy.io/mvn/klikli-dev/mods"
+    }
+    maven {
+        name = 'Kotlin for Forge'
+        url = 'https://thedarkcolour.github.io/KotlinForForge/'
     }
 }
 
@@ -95,12 +102,26 @@ dependencies {
     minecraft "net.minecraftforge:forge:${minecraft_version}-${forge_version}"
     annotationProcessor 'org.spongepowered:mixin:0.8.5:processor'
 
+    /Cobblemon/
+//    compileOnly fg.deobf("curse.maven:cobblemon-687131:${cobblemon_forge_file_id}")
+//    compileOnly fg.deobf("curse.maven:architectury-api-419699:${architectury_forge_file_id}")
+    implementation fg.deobf("curse.maven:cobblemon-687131:${cobblemon_forge_file_id}")
+    implementation fg.deobf("curse.maven:architectury-api-419699:${architectury_forge_file_id}")
+
+    /Kotlin for Forge/
+    implementation "thedarkcolour:kotlinforforge:${kotlin_for_forge_version}"
+
+    /Plasmo Voice/
+    compileOnly fg.deobf("curse.maven:plasmo-voice-467028:${plasmo_voice_forge_file_id}")
+//    implementation fg.deobf("curse.maven:plasmo-voice-467028:${plasmo_voice_forge_file_id}")
+
+    /Raised/
+    compileOnly fg.deobf("curse.maven:raised-570368:${raised_forge_file_id}")
+//    implementation fg.deobf("curse.maven:raised-570368:${raised_forge_file_id}")
+
+    /Modonomicon/
     compileOnly fg.deobf("com.klikli_dev:modonomicon:${modonomicon_mc_version}-${modonomicon_version}")
     runtimeOnly fg.deobf("com.klikli_dev:modonomicon:${modonomicon_mc_version}-${modonomicon_version}")
-
-    implementation fg.deobf("curse.maven:plasmo-voice-467028:4792697")
-
-    compileOnly fg.deobf("curse.maven:raised-570368:4813519")
 }
 
 jar {
@@ -156,10 +177,10 @@ tasks.withType(JavaCompile).configureEach {
 
 String changelogText = projectDir.toPath().resolve("CHANGELOG.md").getText('UTF-8')
 
-task publishCurseForge(type: net.darkhax.curseforgegradle.TaskPublishCurseForge){
+tasks.register('publishCurseForge', TaskPublishCurseForge) {
     int firstHeading = changelogText.indexOf("## [")
-    int nextHeading = changelogText.indexOf("## [", firstHeading+1)
-    String recentChangelogText = changelogText.substring(firstHeading,nextHeading)
+    int nextHeading = changelogText.indexOf("## [", firstHeading + 1)
+    String recentChangelogText = changelogText.substring(firstHeading, nextHeading)
 
     debugMode = false
     apiToken = System.getenv("CURSEFORGE_TOKEN")

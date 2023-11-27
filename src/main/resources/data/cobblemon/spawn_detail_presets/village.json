@@ -1,10 +1,12 @@
 {
   "condition": {
-    "dimensions": [
-      "iantweaks:overworld2"
-    ],
 	"structures": [
 	  "#minecraft:village"
 	]
+  },
+  "anticondition": {
+    "dimensions": [
+      "minecraft:overworld"
+    ]
   }
 }

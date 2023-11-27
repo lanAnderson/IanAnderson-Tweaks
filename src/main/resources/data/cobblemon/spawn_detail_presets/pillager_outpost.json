@@ -1,8 +1,5 @@
 {
   "condition": {
-    "dimensions": [
-      "iantweaks:overworld2"
-    ],
 	"structures": [
 	  "minecraft:pillager_outpost"
     ],
@@ -22,5 +19,10 @@
 	  "#minecraft:logs",
 	  "#minecraft:planks"
 	]
+  },
+  "anticondition": {
+    "dimensions": [
+      "minecraft:overworld"
+    ]
   }
 }

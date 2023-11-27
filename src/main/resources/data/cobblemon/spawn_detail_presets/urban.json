@@ -1,8 +1,5 @@
 {
   "condition": {
-    "dimensions": [
-      "iantweaks:overworld2"
-    ],
 	"neededNearbyBlocks": [
       "minecraft:white_concrete",
       "minecraft:orange_concrete",
@@ -23,6 +20,9 @@
     ]
   },
   "anticondition": {
+    "dimensions": [
+      "minecraft:overworld"
+    ],
     "structures": [
 	  "minecraft:trail_ruins"
 	]

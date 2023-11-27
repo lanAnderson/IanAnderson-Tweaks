@@ -1,11 +1,13 @@
 {
   "condition": {
-    "dimensions": [
-      "iantweaks:overworld2"
-    ],
     "neededNearbyBlocks": [
 	  "#minecraft:leaves",
       "#c:leaves"
+    ]
+  },
+  "anticondition": {
+    "dimensions": [
+      "minecraft:overworld"
     ]
   }
 }

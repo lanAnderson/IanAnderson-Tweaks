@@ -1,25 +1,26 @@
 {
-	"condition": {
-		"dimensions": [
-			"iantweaks:overworld2"
-		],
-		"structures": [
-			"minecraft:desert_pyramid"
-		],
-		"minY": 62,
-		"neededNearbyBlocks": [
-			"minecraft:chiseled_sandstone",
-			"minecraft:cut_sandstone",
-			"minecraft:orange_terracotta",
-			"minecraft:sandstone",
-			"minecraft:sandstone_slab",
-			"minecraft:sandstone_stairs"
-		]
-	},
-	"anticondition": {
-		"neededBaseBlocks": [
-			"minecraft:blue_terracotta",
-			"minecraft:orange_terracotta"
-		]
-	}
+  "condition": {
+	"structures": [
+	  "minecraft:desert_pyramid"
+    ],
+	"minY": 62,
+	"neededNearbyBlocks": [
+      "minecraft:chiseled_sandstone",
+	  "minecraft:cut_sandstone",
+	  "minecraft:orange_terracotta",
+	  "minecraft:sandstone",
+	  "minecraft:sandstone_slab",
+	  "minecraft:sandstone_stairs"
+	]
+  },
+  "anticondition": {
+    "dimensions": [
+      "minecraft:overworld"
+    ],
+
+    "neededBaseBlocks": [
+	  "minecraft:blue_terracotta",
+	  "minecraft:orange_terracotta"
+	]
+  }
 }

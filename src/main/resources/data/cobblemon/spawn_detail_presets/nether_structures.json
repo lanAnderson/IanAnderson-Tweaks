@@ -1,8 +1,5 @@
 {
   "condition": {
-    "dimensions": [
-      "minecraft:nether"
-    ],
 	"structures": [
 	  "minecraft:bastion_remnant",
 	  "minecraft:fortress"

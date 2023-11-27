@@ -1,10 +1,11 @@
 {
   "context": "submerged",
   "condition": {
-    "dimensions": [
-      "minecraft:nether",
-      "iantweaks:overworld2"
-    ],
     "fluid": "#minecraft:lava"
+  },
+  "anticondition": {
+    "dimensions": [
+      "minecraft:overworld"
+    ]
   }
 }

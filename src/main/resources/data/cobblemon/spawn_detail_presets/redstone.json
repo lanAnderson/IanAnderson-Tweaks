@@ -1,8 +1,5 @@
 {
   "condition": {
-    "dimensions": [
-      "iantweaks:overworld2"
-    ],
     "neededNearbyBlocks": [
 	  "minecraft:activator_rail",
 	  "minecraft:daylight_detector",
@@ -26,6 +23,11 @@
 	  "#minecraft:redstone_ores",
       "#c:redstone_blocks",
 	  "#c:redstone_ores"
+    ]
+  },
+  "anticondition": {
+    "dimensions": [
+      "minecraft:overworld"
     ]
   }
 }

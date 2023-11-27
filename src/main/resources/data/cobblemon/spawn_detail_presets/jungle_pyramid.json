@@ -1,8 +1,5 @@
 {
   "condition": {
-    "dimensions": [
-      "iantweaks:overworld2"
-    ],
 	"structures": [
 	  "minecraft:jungle_pyramid"
     ],
@@ -17,5 +14,10 @@
 	  "minecraft:cobblestone_stairs",
 	  "minecraft:mossy_cobblestone"
 	]
-  }
+  },
+	"anticondition": {
+		"dimensions": [
+			"minecraft:overworld"
+		]
+	}
 }

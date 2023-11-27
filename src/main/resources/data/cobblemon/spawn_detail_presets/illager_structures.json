@@ -1,13 +1,15 @@
 {
   "condition": {
-    "dimensions": [
-      "iantweaks:overworld2"
-    ],
 	"structures": [
 	  "minecraft:pillager_outpost",
 	  "minecraft:swamp_hut",
 	  "minecraft:woodland_mansion"
     ],
 	"minY": 62
+  },
+  "anticondition": {
+    "dimensions": [
+      "minecraft:overworld"
+    ]
   }
 }

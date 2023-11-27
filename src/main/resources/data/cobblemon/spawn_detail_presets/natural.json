@@ -1,8 +1,5 @@
 {
   "condition": {
-    "dimensions": [
-      "iantweaks:overworld2"
-    ],
     "neededBaseBlocks": [
       "minecraft:big_dripleaf",
 	  "minecraft:lily_pad",
@@ -131,8 +128,12 @@
     ]
   },
   "anticondition": {
-	  "neededBaseBlocks": [
-      "minecraft:farmland"
-	  ]
+    "dimensions": [
+      "minecraft:overworld"
+    ],
+
+    "neededBaseBlocks": [
+    "minecraft:farmland"
+    ]
   }
 }

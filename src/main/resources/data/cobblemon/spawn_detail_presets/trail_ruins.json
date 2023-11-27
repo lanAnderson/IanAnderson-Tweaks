@@ -1,8 +1,5 @@
 {
   "condition": {
-    "dimensions": [
-      "iantweaks:overworld2"
-    ],
 	"structures": [
 	  "minecraft:trail_ruins"
     ],
@@ -57,5 +54,10 @@
 	  "minecraft:yellow_glazed_terracotta",
 	  "#minecraft:terracotta"
 	]
+  },
+  "anticondition": {
+    "dimensions": [
+      "minecraft:overworld"
+    ]
   }
 }

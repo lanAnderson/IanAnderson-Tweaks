@@ -8,6 +8,9 @@
 	]
   },
   "anticondition": {
+    "dimensions": [
+      "minecraft:overworld"
+    ],
     "biomes": [
 	  "#cobblemon:is_freezing"
 	]

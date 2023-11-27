@@ -1,7 +1,7 @@
 {
   "anticondition": {
     "dimensions": [
-      "iantweaks:overworld2"
+      "minecraft:overworld"
     ],
 	"structures": [
 	  "#minecraft:village"

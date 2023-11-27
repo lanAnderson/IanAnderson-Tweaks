@@ -1,8 +1,5 @@
 {
   "condition": {
-    "dimensions": [
-      "iantweaks:overworld2"
-    ],
     "neededNearbyBlocks": [
       "minecraft:amethyst_block",
       "minecraft:budding_amethyst",
@@ -16,6 +13,11 @@
       "#c:ruby_ores",
       "#c:sapphire_ores",
       "#c:topaz_ores"
+    ]
+  },
+  "anticondition": {
+    "dimensions": [
+      "minecraft:overworld"
     ]
   }
 }

@@ -1,8 +1,5 @@
 {
   "condition": {
-    "dimensions": [
-      "iantweaks:overworld2"
-    ],
 	"structures": [
 	  "#minecraft:ruined_portal"
     ],
@@ -11,5 +8,10 @@
 	  "minecraft:netherack",
 	  "minecraft:obsidian"
 	]
+  },
+  "anticondition": {
+    "dimensions": [
+      "minecraft:overworld"
+    ]
   }
 }

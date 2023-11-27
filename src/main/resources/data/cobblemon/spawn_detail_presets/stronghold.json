@@ -1,8 +1,5 @@
 {
   "condition": {
-    "dimensions": [
-      "iantweaks:overworld2"
-    ],
 	"structures": [
 	  "minecraft:stronghold"
     ],
@@ -14,5 +11,10 @@
       "minecraft:cracked_stone_bricks",
 	  "minecraft:mossy_stone_bricks"
 	]
+  },
+  "anticondition": {
+    "dimensions": [
+      "minecraft:overworld"
+    ]
   }
 }

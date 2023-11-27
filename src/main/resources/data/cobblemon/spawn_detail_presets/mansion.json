@@ -1,8 +1,5 @@
 {
   "condition": {
-    "dimensions": [
-      "iantweaks:overworld2"
-    ],
 	"structures": [
 	  "minecraft:mansion"
     ],
@@ -21,5 +18,10 @@
 	  "minecraft:cobblestone_wall",
 	  "minecraft:dark_oak_planks"
 	]
-  }
+  },
+	"anticondition": {
+		"dimensions": [
+			"minecraft:overworld"
+		]
+	}
 }

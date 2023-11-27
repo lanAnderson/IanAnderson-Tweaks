@@ -1,8 +1,5 @@
 {
   "condition": {
-    "dimensions": [
-      "iantweaks:overworld2"
-    ],
 	"structures": [
 	  "#minecraft:ocean_ruin"
     ],
@@ -17,5 +14,10 @@
 	  "minecraft:polished_granite",
       "minecraft:stone_bricks"
 	]
+  },
+  "anticondition": {
+    "dimensions": [
+      "minecraft:overworld"
+    ]
   }
 }

@@ -1,8 +1,5 @@
 {
   "condition": {
-    "dimensions": [
-      "iantweaks:overworld2"
-    ],
 	"structures": [
 	  "minecraft:ancient_city"
     ],
@@ -25,5 +22,10 @@
 	  "minecraft:polished_deepslate_slab",
 	  "minecraft:polished_deepslate_wall"
 	]
+  },
+  "anticondition": {
+    "dimensions": [
+      "minecraft:overworld"
+    ]
   }
 }

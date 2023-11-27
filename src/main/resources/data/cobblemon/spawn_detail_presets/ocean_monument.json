@@ -1,8 +1,5 @@
 {
   "condition": {
-    "dimensions": [
-      "iantweaks:overworld2"
-    ],
 	"structures": [
 	  "minecraft:ocean_monument"
     ],
@@ -12,5 +9,10 @@
 	  "minecraft:prismarine",
 	  "minecraft:prismarine_bricks"
 	]
+  },
+  "anticondition": {
+    "dimensions": [
+      "minecraft:overworld"
+    ]
   }
 }

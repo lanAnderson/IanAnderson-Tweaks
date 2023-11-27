@@ -1,5 +1,8 @@
 {
   "condition": {
+    "dimensions": [
+      "iantweaks:overworld2"
+    ],
     "neededNearbyBlocks": [
       "minecraft:amethyst_block",
       "minecraft:budding_amethyst",

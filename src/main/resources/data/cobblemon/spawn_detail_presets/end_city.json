@@ -1,5 +1,8 @@
 {
   "condition": {
+    "dimensions": [
+      "minecraft:end"
+    ],
 	"structures": [
 	  "minecraft:end_city"
     ],

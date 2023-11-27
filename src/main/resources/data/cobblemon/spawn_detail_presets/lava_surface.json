@@ -1,6 +1,9 @@
 {
   "context": "surface",
   "condition": {
+    "dimensions": [
+      "iantweaks:overworld2"
+    ],
     "fluid": "#minecraft:lava"
   }
 }

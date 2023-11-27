@@ -1,5 +1,8 @@
 {
   "condition": {
+    "dimensions": [
+      "iantweaks:overworld2"
+    ],
     "biomes": [
 	  "#cobblemon:is_river"
 	]

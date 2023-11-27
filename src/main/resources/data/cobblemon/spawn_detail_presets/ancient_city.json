@@ -1,5 +1,8 @@
 {
   "condition": {
+    "dimensions": [
+      "iantweaks:overworld2"
+    ],
 	"structures": [
 	  "minecraft:ancient_city"
     ],

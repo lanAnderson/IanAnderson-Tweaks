@@ -1,5 +1,8 @@
 {
   "condition": {
+    "dimensions": [
+      "iantweaks:overworld2"
+    ],
     "neededNearbyBlocks": [
 	  "#minecraft:flowers",
       "#c:flowers"

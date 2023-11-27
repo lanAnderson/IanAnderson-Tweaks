@@ -1,5 +1,8 @@
 {
   "condition": {
+    "dimensions": [
+      "minecraft:nether"
+    ],
 	"structures": [
 	  "minecraft:nether_fossil"
     ],

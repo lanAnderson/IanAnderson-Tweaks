@@ -1,5 +1,8 @@
 {
   "condition": {
+    "dimensions": [
+      "iantweaks:overworld2"
+    ],
 	"maxY": 62,
 	"neededNearbyBlocks": [
       "#minecraft:logs",

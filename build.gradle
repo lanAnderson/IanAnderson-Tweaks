@@ -96,6 +96,9 @@ repositories {
         name = 'Kotlin for Forge'
         url = 'https://thedarkcolour.github.io/KotlinForForge/'
     }
+    maven {
+        url = "https://jitpack.io"
+    }
 }
 
 dependencies {
@@ -114,6 +117,9 @@ dependencies {
     /Plasmo Voice/
     compileOnly fg.deobf("curse.maven:plasmo-voice-467028:${plasmo_voice_forge_file_id}")
 //    implementation fg.deobf("curse.maven:plasmo-voice-467028:${plasmo_voice_forge_file_id}")
+
+    /Pehkui/
+    implementation fg.deobf("com.github.Virtuoel:Pehkui:${pehkui_version}")
 
     /Raised/
     compileOnly fg.deobf("curse.maven:raised-570368:${raised_forge_file_id}")

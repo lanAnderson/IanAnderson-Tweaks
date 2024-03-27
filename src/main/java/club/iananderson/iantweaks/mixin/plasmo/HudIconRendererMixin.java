@@ -15,7 +15,7 @@ import su.plo.voice.client.config.VoiceClientConfig;
 import su.plo.voice.client.render.voice.HudIconRenderer;
 import su.plo.voice.universal.UMatrixStack;
 
-import static club.iananderson.iantweaks.Config.*;
+import static club.iananderson.iantweaks.config.Config.*;
 import static su.plo.voice.api.client.config.IconPosition.BOTTOM_CENTER;
 
 @Mixin(HudIconRenderer.class)

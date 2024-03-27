@@ -1,5 +1,6 @@
-package club.iananderson.iantweaks;
+package club.iananderson.iantweaks.config;
 
+import club.iananderson.iantweaks.IanAndersonTweaks;
 import net.minecraftforge.common.ForgeConfigSpec;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
@@ -9,7 +10,7 @@ import net.minecraftforge.fml.event.config.ModConfigEvent;
 @Mod.EventBusSubscriber(modid = IanAndersonTweaks.MODID, bus = Mod.EventBusSubscriber.Bus.MOD)
 public class Config
 {
-    static final ForgeConfigSpec SPEC;
+    public static final ForgeConfigSpec SPEC;
 
     static {
         ForgeConfigSpec.Builder configBuilder = new ForgeConfigSpec.Builder();

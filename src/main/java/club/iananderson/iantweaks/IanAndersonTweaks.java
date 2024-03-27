@@ -22,8 +22,9 @@ public class IanAndersonTweaks {
     private static final Logger LOGGER = LogUtils.getLogger();
 
     public IanAndersonTweaks() {
-        PlayerResize.test();
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
+        Registration.init(modEventBus);
+
         modEventBus.addListener(this::commonSetup);
         MinecraftForge.EVENT_BUS.register(this);
         ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, Config.SPEC);

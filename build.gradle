@@ -15,8 +15,6 @@ plugins {
     id 'net.minecraftforge.gradle' version '[6.0,6.2)'
     id 'org.parchmentmc.librarian.forgegradle' version '1.+'
     id 'net.darkhax.curseforgegradle' version '1.1.16'
-    id 'org.jetbrains.kotlin.jvm' version '1.9.20'
-    id 'org.jetbrains.kotlin.plugin.serialization' version '1.9.20'
 }
 
 apply plugin: 'org.spongepowered.mixin'
@@ -93,10 +91,6 @@ repositories {
         url = "https://repo.repsy.io/mvn/klikli-dev/mods"
     }
     maven {
-        name = 'Kotlin for Forge'
-        url = 'https://thedarkcolour.github.io/KotlinForForge/'
-    }
-    maven {
         url = "https://jitpack.io"
     }
 }
@@ -108,17 +102,19 @@ dependencies {
     /Cobblemon/
 //    compileOnly fg.deobf("curse.maven:cobblemon-687131:${cobblemon_forge_file_id}")
 //    compileOnly fg.deobf("curse.maven:architectury-api-419699:${architectury_forge_file_id}")
-    implementation fg.deobf("curse.maven:cobblemon-687131:${cobblemon_forge_file_id}")
-    implementation fg.deobf("curse.maven:architectury-api-419699:${architectury_forge_file_id}")
+//    implementation fg.deobf("curse.maven:cobblemon-687131:${cobblemon_forge_file_id}")
+//    implementation fg.deobf("curse.maven:architectury-api-419699:${architectury_forge_file_id}")
 
     /Kotlin for Forge/
-    implementation "thedarkcolour:kotlinforforge:${kotlin_for_forge_version}"
+//    compileOnly  "thedarkcolour:kotlinforforge:${kotlin_for_forge_version}"
+//    implementation "thedarkcolour:kotlinforforge:${kotlin_for_forge_version}"
 
     /Plasmo Voice/
     compileOnly fg.deobf("curse.maven:plasmo-voice-467028:${plasmo_voice_forge_file_id}")
 //    implementation fg.deobf("curse.maven:plasmo-voice-467028:${plasmo_voice_forge_file_id}")
 
     /Pehkui/
+//    compileOnly fg.deobf("com.github.Virtuoel:Pehkui:${pehkui_version}")
     implementation fg.deobf("com.github.Virtuoel:Pehkui:${pehkui_version}")
 
     /Raised/

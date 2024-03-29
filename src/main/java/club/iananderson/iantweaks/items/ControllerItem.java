@@ -15,7 +15,7 @@ import virtuoel.pehkui.api.ScaleTypes;
 public class ControllerItem extends Item {
 
     public ControllerItem(Properties properties) {
-        super(properties);
+        super(properties.stacksTo(1));
     }
 
     @Override

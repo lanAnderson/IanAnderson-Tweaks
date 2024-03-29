@@ -2,42 +2,42 @@ package club.iananderson.iantweaks.items;
 
 import club.iananderson.iantweaks.gui.GuiController;
 import club.iananderson.iantweaks.impl.pehkui.PlayerResize;
-import net.minecraft.network.chat.Component;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResultHolder;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
-import virtuoel.pehkui.api.ScaleData;
-
-import static virtuoel.pehkui.api.ScaleTypes.BASE;
+import net.minecraftforge.fml.ModList;
+import org.jetbrains.annotations.NotNull;
+import virtuoel.pehkui.api.ScaleTypes;
 
 public class ControllerItem extends Item {
+
     public ControllerItem(Properties properties) {
-        super(properties.stacksTo(1));
+        super(properties);
     }
 
     @Override
-    public InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand usedHand) {
+    public @NotNull InteractionResultHolder<ItemStack> use(Level level, Player player, @NotNull InteractionHand usedHand) {
         ItemStack heldItem = player.getItemInHand(usedHand);
-
-        if (level.isClientSide()) {
-            PlayerResize playerResize = new PlayerResize(BASE);
-            ScaleData playerScaleData = BASE.getScaleData(player);
-            float currentScale = playerScaleData.getScale();
-
+        PlayerResize INSTANCE = new PlayerResize(ScaleTypes.BASE);
+        if(ModList.get().isLoaded("pehkui")) {
             if (player.isCrouching()) {
                 GuiController.open();
-            } else if (currentScale == 1F){
-                playerResize.resize(player, currentScale / 2);
-                player.sendSystemMessage(Component.literal("Resized to: " + currentScale / 2));
-            } else if (currentScale < 1F)
-                playerResize.resize(player, 1F);
-                player.sendSystemMessage(Component.literal("Resized to: " + 1));
-
+                return InteractionResultHolder.sidedSuccess(heldItem, level.isClientSide());
+            }
+            else if (INSTANCE.currentScale(player) == ScaleTypes.BASE.getDefaultBaseScale()){
+                INSTANCE.resize(player, 0.1F);
+                return InteractionResultHolder.sidedSuccess(heldItem, level.isClientSide());
+            }
+            else
+                INSTANCE.resetSize(player);
+                return InteractionResultHolder.sidedSuccess(heldItem, level.isClientSide());
         }
-        return InteractionResultHolder.pass(heldItem);
+        else return InteractionResultHolder.fail(heldItem);
     }
+
+
 }
 

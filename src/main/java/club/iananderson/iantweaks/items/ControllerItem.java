@@ -21,23 +21,24 @@ public class ControllerItem extends Item {
     @Override
     public @NotNull InteractionResultHolder<ItemStack> use(Level level, Player player, @NotNull InteractionHand usedHand) {
         ItemStack heldItem = player.getItemInHand(usedHand);
-        PlayerResize INSTANCE = new PlayerResize(ScaleTypes.BASE);
-        if(ModList.get().isLoaded("pehkui")) {
-            if (player.isCrouching()) {
-                GuiController.open();
-                return InteractionResultHolder.sidedSuccess(heldItem, level.isClientSide());
+            if (ModList.get().isLoaded("pehkui")) {
+                PlayerResize INSTANCE = new PlayerResize(ScaleTypes.BASE);
+
+                if (player.isCrouching()) {
+                    GuiController.open(player);
+                    return InteractionResultHolder.sidedSuccess(heldItem, level.isClientSide());
+
+                } else if (INSTANCE.currentScale(player) == ScaleTypes.BASE.getDefaultBaseScale()) {
+                    INSTANCE.resize(player, 0.1F);
+                    return InteractionResultHolder.sidedSuccess(heldItem, level.isClientSide());
+
+                } else
+                    INSTANCE.resetSize(player);
+                    return InteractionResultHolder.sidedSuccess(heldItem, level.isClientSide());
+
             }
-            else if (INSTANCE.currentScale(player) == ScaleTypes.BASE.getDefaultBaseScale()){
-                INSTANCE.resize(player, 0.1F);
-                return InteractionResultHolder.sidedSuccess(heldItem, level.isClientSide());
-            }
-            else
-                INSTANCE.resetSize(player);
-                return InteractionResultHolder.sidedSuccess(heldItem, level.isClientSide());
-        }
-        else return InteractionResultHolder.fail(heldItem);
+
+        return InteractionResultHolder.sidedSuccess(heldItem, level.isClientSide());
     }
-
-
 }
 

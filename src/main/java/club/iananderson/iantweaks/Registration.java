@@ -18,7 +18,7 @@ public class Registration {
     public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, IanAndersonTweaks.MODID);
     public static final DeferredRegister<CreativeModeTab> TABS = DeferredRegister.create(Registries.CREATIVE_MODE_TAB, IanAndersonTweaks.MODID);
 
-    public static final RegistryObject<Item> CONTROLLER = ITEMS.register("controller", () -> new ControllerItem(new Item.Properties()));
+    public static final RegistryObject<Item> CONTROLLER = ITEMS.register("controller", ControllerItem::new);
 
     public static RegistryObject<CreativeModeTab> TAB = TABS.register(IanAndersonTweaks.MODID, () -> CreativeModeTab.builder()
         .title(Component.translatable("tab.iantweaks")).icon(() -> new ItemStack(CONTROLLER.get()))

@@ -26,10 +26,11 @@ public class IanAndersonTweaks {
         Registration.init(modEventBus);
 
         modEventBus.addListener(this::commonSetup);
-        MinecraftForge.EVENT_BUS.register(this);
-        ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, Config.SPEC);
-    }
 
+        ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, Config.SPEC);
+
+        MinecraftForge.EVENT_BUS.register(this);
+    }
 
     private void commonSetup(final FMLCommonSetupEvent event) {
     }

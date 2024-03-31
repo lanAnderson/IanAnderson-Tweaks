@@ -47,6 +47,7 @@ minecraft {
         }
 
         client {
+            jvmArg "-XX:+AllowEnhancedClassRedefinition"
             property 'forge.enabledGameTestNamespaces', mod_id
         }
 

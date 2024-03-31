@@ -1,5 +1,11 @@
 {
   "tab.iantweaks": "IanAnderson Tweaks",
 
-  "item.iantweaks.controller": "Controller"
+  "units.iantweaks.multiplier": "Multiplier",
+  "units.iantweaks.blocks": "Blocks",
+
+  "item.iantweaks.controller": "Controller",
+  "item.iantweaks.controller.tooltip1": "Current Setting: ",
+  "item.iantweaks.controller.tooltip2": "Crouch + Right Click to Configure Size",
+  "item.iantweaks.controller.tooltip3": "Right Click to Change Size"
 }

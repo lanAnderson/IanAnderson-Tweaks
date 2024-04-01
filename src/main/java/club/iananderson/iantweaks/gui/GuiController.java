@@ -2,6 +2,8 @@ package club.iananderson.iantweaks.gui;
 
 import club.iananderson.iantweaks.IanAndersonTweaks;
 import club.iananderson.iantweaks.config.Config;
+import club.iananderson.iantweaks.impl.pehkui.PlayerResize;
+import club.iananderson.iantweaks.items.ControllerItem;
 import com.mojang.blaze3d.systems.RenderSystem;
 import com.mojang.blaze3d.vertex.PoseStack;
 import net.minecraft.ChatFormatting;
@@ -9,6 +11,7 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.components.ImageButton;
 import net.minecraft.client.gui.screens.Screen;
+import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import org.jetbrains.annotations.NotNull;
@@ -101,8 +104,9 @@ public class GuiController extends Screen {
 
         ImageButton greenButtonCheck = new ImageButton(greenButton.x,greenButton.y,BUTTON_WIDTH,BUTTON_HEIGHT,0,0,CHECK,b -> {
             targetScale = Double.parseDouble(new DecimalFormat("0.00").format(targetScale));
-            Config.setTargetScale(targetScale);
             Config.setDisplayAsBlocks(unitBlocks);
+            Config.setTargetScale(targetScale);
+        /* Todo Need this to sync to server as well */
             mc.popGuiLayer();
         });
         ImageButton redButtonCheck = new ImageButton(redButton.x,redButton.y,BUTTON_WIDTH,BUTTON_HEIGHT,16,0,CHECK,b -> {

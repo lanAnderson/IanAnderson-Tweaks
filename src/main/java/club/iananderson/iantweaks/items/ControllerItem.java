@@ -6,12 +6,10 @@ import club.iananderson.iantweaks.impl.pehkui.PlayerResize;
 import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.InteractionHand;
-import net.minecraft.world.InteractionResult;
 import net.minecraft.world.InteractionResultHolder;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.SpawnEggItem;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.level.Level;
 import net.minecraftforge.fml.ModList;
@@ -19,9 +17,12 @@ import org.jetbrains.annotations.NotNull;
 import virtuoel.pehkui.api.ScaleTypes;
 
 import javax.annotation.Nullable;
+import java.text.DecimalFormat;
 import java.util.List;
 
 import static club.iananderson.iantweaks.config.Config.*;
+import static club.iananderson.iantweaks.impl.pehkui.PlayerResize.INSTANCE;
+
 
 public class ControllerItem extends Item {
 
@@ -30,40 +31,45 @@ public class ControllerItem extends Item {
                 .stacksTo(1));
     }
 
+    public float getTargetValue(){
+        return (float) TARGET_SCALE.get().floatValue();
+    }
+
+
     @Override
     public @NotNull InteractionResultHolder<ItemStack> use(@NotNull Level level, Player player, @NotNull InteractionHand usedHand) {
         ItemStack heldItem = player.getItemInHand(usedHand);
             if (ModList.get().isLoaded("pehkui")) {
-                PlayerResize INSTANCE = new PlayerResize(ScaleTypes.BASE);
-
-                if (level.isClientSide && player.isCrouching()){
+                if (level.isClientSide() && player.isCrouching()){
                     GuiController.open();
                 }
 
                 else if (!player.isCrouching()){
-                    if (INSTANCE.currentScale(player) != TARGET_SCALE.get().floatValue()) {
-                        INSTANCE.resize(player, TARGET_SCALE.get().floatValue());
+                    if (PlayerResize.INSTANCE.currentScale(player) != getTargetValue()) {
+                        INSTANCE.resize(player, getTargetValue());
                     }
 
                     else {
                         INSTANCE.resetSize(player);
                     }
                 }
-                return new InteractionResultHolder<>(InteractionResult.SUCCESS, heldItem);
+                return InteractionResultHolder.sidedSuccess(heldItem, level.isClientSide());
+
             }
-        return new InteractionResultHolder<>(InteractionResult.SUCCESS, heldItem);
+        return InteractionResultHolder.sidedSuccess(heldItem, level.isClientSide());
     }
 
     @Override
     public void appendHoverText(ItemStack stack, @Nullable Level level, List<Component> tooltip, TooltipFlag flag) {
-        Component units;
+        Component units = Component.translatable("units.iantweaks.multiplier");
+        String playerScaleString = new DecimalFormat("0.00").format(TARGET_SCALE.get());
 
         if(DISPLAY_AS_BLOCKS.get()){
             units = Component.translatable("units.iantweaks.blocks");
+            playerScaleString = (new DecimalFormat("0.0").format(TARGET_SCALE.get() * 2));
         }
-        else units = Component.translatable("units.iantweaks.multiplier");
 
-        tooltip.add(Component.translatable("item.iantweaks.controller.tooltip1").withStyle(ChatFormatting.RED).append(Component.literal(TARGET_SCALE.get() +" "+ units.getString()).withStyle(ChatFormatting.GRAY)));
+        tooltip.add(Component.translatable("item.iantweaks.controller.tooltip1").withStyle(ChatFormatting.RED).append(Component.literal(playerScaleString +" "+ units.getString()).withStyle(ChatFormatting.GRAY)));
         tooltip.add(Component.literal(""));
         tooltip.add(Component.translatable("item.iantweaks.controller.tooltip2").withStyle(ChatFormatting.GRAY));
         tooltip.add(Component.translatable("item.iantweaks.controller.tooltip3").withStyle(ChatFormatting.GRAY));

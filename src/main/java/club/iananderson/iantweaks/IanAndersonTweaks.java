@@ -1,7 +1,8 @@
 package club.iananderson.iantweaks;
 
 import club.iananderson.iantweaks.config.Config;
-import club.iananderson.iantweaks.impl.pehkui.PlayerResize;
+import club.iananderson.iantweaks.events.ScaleEventHandler;
+import club.iananderson.iantweaks.networking.Channel;
 import com.mojang.logging.LogUtils;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
@@ -29,10 +30,11 @@ public class IanAndersonTweaks {
 
         ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, Config.SPEC);
 
-        MinecraftForge.EVENT_BUS.register(this);
+        MinecraftForge.EVENT_BUS.register(new ScaleEventHandler());
     }
 
     private void commonSetup(final FMLCommonSetupEvent event) {
+        Channel.register();
     }
 
     @SubscribeEvent

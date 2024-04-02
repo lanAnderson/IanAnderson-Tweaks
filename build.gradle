@@ -198,5 +198,5 @@ tasks.register('publishCurseForge', TaskPublishCurseForge) {
     mainFile.addGameVersion("Java 17")
 
     mainFile.addRequirement("plasmo-voice")
-    mainFile.addRequirement("plasmo-voice")
+    mainFile.addRequirement("pehkui")
 }

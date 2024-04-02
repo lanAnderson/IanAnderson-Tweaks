@@ -27,3 +27,17 @@ issueTrackerURL="https://github.com/lanAnderson/IanAnderson-Tweaks/issues"
     versionRange="${minecraft_version_range}"
     ordering="NONE"
     side="BOTH"
+
+[[dependencies.${mod_id}]]
+    modId="pehkui"
+    mandatory=true
+    versionRange="*"
+    ordering="NONE"
+    side="BOTH"
+
+[[dependencies.${mod_id}]]
+    modId="plasmovoice"
+    mandatory=true
+    versionRange="*"
+    ordering="NONE"
+    side="BOTH"

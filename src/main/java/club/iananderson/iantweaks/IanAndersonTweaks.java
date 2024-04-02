@@ -1,11 +1,10 @@
 package club.iananderson.iantweaks;
 
 import club.iananderson.iantweaks.config.Config;
-import club.iananderson.iantweaks.events.ScaleEventHandler;
-import club.iananderson.iantweaks.networking.Channel;
+import club.iananderson.iantweaks.datagen.DataGeneration;
+import club.iananderson.iantweaks.networking.PacketHandler;
 import com.mojang.logging.LogUtils;
 import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.server.ServerStartingEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -27,14 +26,13 @@ public class IanAndersonTweaks {
         Registration.init(modEventBus);
 
         modEventBus.addListener(this::commonSetup);
+        modEventBus.addListener(DataGeneration::generate);
 
         ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, Config.SPEC);
-
-        MinecraftForge.EVENT_BUS.register(new ScaleEventHandler());
     }
 
     private void commonSetup(final FMLCommonSetupEvent event) {
-        Channel.register();
+        PacketHandler.register();
     }
 
     @SubscribeEvent

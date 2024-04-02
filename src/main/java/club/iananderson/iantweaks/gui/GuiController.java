@@ -2,8 +2,8 @@ package club.iananderson.iantweaks.gui;
 
 import club.iananderson.iantweaks.IanAndersonTweaks;
 import club.iananderson.iantweaks.config.Config;
-import club.iananderson.iantweaks.impl.pehkui.PlayerResize;
-import club.iananderson.iantweaks.items.ControllerItem;
+import club.iananderson.iantweaks.networking.PacketHandler;
+import club.iananderson.iantweaks.networking.PlayerTargetSizePacket;
 import com.mojang.blaze3d.systems.RenderSystem;
 import com.mojang.blaze3d.vertex.PoseStack;
 import net.minecraft.ChatFormatting;
@@ -11,7 +11,6 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.components.ImageButton;
 import net.minecraft.client.gui.screens.Screen;
-import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import org.jetbrains.annotations.NotNull;
@@ -106,7 +105,7 @@ public class GuiController extends Screen {
             targetScale = Double.parseDouble(new DecimalFormat("0.00").format(targetScale));
             Config.setDisplayAsBlocks(unitBlocks);
             Config.setTargetScale(targetScale);
-        /* Todo Need this to sync to server as well */
+            PacketHandler.sendToServer(new PlayerTargetSizePacket(targetScale));
             mc.popGuiLayer();
         });
         ImageButton redButtonCheck = new ImageButton(redButton.x,redButton.y,BUTTON_WIDTH,BUTTON_HEIGHT,16,0,CHECK,b -> {
@@ -133,9 +132,18 @@ public class GuiController extends Screen {
         float unitWidth = mc.font.width(units);
 
         poseStack.pushPose();
-        graphics.drawString(mc.font, units, (int) ((screenMiddle.x)-(unitWidth/2)), (screenTopLeft.y)+BUTTON_HEIGHT/8,0x000000,false);
+        int titleScale = 1;
+        graphics.drawString(mc.font, units, (int) ((screenMiddle.x/titleScale)-(unitWidth/2)), (screenTopLeft.y/titleScale)+BUTTON_HEIGHT/8,0x5c5c5c,false);
+        poseStack.translate(-0.25,-0.40,0);
+        graphics.drawString(mc.font, units, (int) ((screenMiddle.x/titleScale)-(unitWidth/2)), (screenTopLeft.y/titleScale)+BUTTON_HEIGHT/8,0x8b8b8b,false);
+        poseStack.popPose();
+
+
+        poseStack.pushPose();
         poseStack.scale(textScale, textScale,1);
-        graphics.drawString(mc.font, playerScaleString, (screenMiddle.x/textScale)-(lineWidth/2), (screenMiddle.y/textScale)-(lineHeight/2),0x838891,false);
+        graphics.drawString(mc.font, playerScaleString, ((screenMiddle.x)/textScale)-(lineWidth/2), ((screenMiddle.y)/textScale)-(lineHeight/2),0x5c5c5c,false);
+        poseStack.translate(-0.5/textScale,-0.5/textScale,0);
+        graphics.drawString(mc.font, playerScaleString, ((screenMiddle.x)/textScale)-(lineWidth/2), ((screenMiddle.y)/textScale)-(lineHeight/2),0x8b8b8b,false);
         poseStack.popPose();
     }
 

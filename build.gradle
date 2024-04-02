@@ -115,8 +115,8 @@ dependencies {
 //    implementation fg.deobf("curse.maven:plasmo-voice-467028:${plasmo_voice_forge_file_id}")
 
     /Pehkui/
-//    compileOnly fg.deobf("com.github.Virtuoel:Pehkui:${pehkui_version}")
-    implementation fg.deobf("com.github.Virtuoel:Pehkui:${pehkui_version}")
+    compileOnly fg.deobf("com.github.Virtuoel:Pehkui:${pehkui_version}")
+//    implementation fg.deobf("com.github.Virtuoel:Pehkui:${pehkui_version}")
 
     /Raised/
     compileOnly fg.deobf("curse.maven:raised-570368:${raised_forge_file_id}")
@@ -124,7 +124,7 @@ dependencies {
 
     /Modonomicon/
     compileOnly fg.deobf("com.klikli_dev:modonomicon:${modonomicon_mc_version}-${modonomicon_version}")
-    runtimeOnly fg.deobf("com.klikli_dev:modonomicon:${modonomicon_mc_version}-${modonomicon_version}")
+//    runtimeOnly fg.deobf("com.klikli_dev:modonomicon:${modonomicon_mc_version}-${modonomicon_version}")
 }
 
 jar {
@@ -194,7 +194,9 @@ tasks.register('publishCurseForge', TaskPublishCurseForge) {
     mainFile.releaseType = "release"
 
     mainFile.addGameVersion("Forge")
+    mainFile.addGameVersion("NeoForge")
     mainFile.addGameVersion("Java 17")
 
+    mainFile.addRequirement("plasmo-voice")
     mainFile.addRequirement("plasmo-voice")
 }

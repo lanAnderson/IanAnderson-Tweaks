@@ -1,6 +1,5 @@
 package club.iananderson.iantweaks.items;
 
-import club.iananderson.iantweaks.config.Config;
 import club.iananderson.iantweaks.gui.GuiController;
 import club.iananderson.iantweaks.impl.pehkui.PlayerResize;
 import net.minecraft.ChatFormatting;
@@ -14,13 +13,13 @@ import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.level.Level;
 import net.minecraftforge.fml.ModList;
 import org.jetbrains.annotations.NotNull;
-import virtuoel.pehkui.api.ScaleTypes;
 
 import javax.annotation.Nullable;
 import java.text.DecimalFormat;
 import java.util.List;
 
-import static club.iananderson.iantweaks.config.Config.*;
+import static club.iananderson.iantweaks.config.Config.DISPLAY_AS_BLOCKS;
+import static club.iananderson.iantweaks.config.Config.TARGET_SCALE;
 import static club.iananderson.iantweaks.impl.pehkui.PlayerResize.INSTANCE;
 
 

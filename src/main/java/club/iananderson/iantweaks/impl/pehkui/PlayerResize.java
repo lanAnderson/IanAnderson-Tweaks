@@ -20,10 +20,9 @@ public final class PlayerResize {
     }
 
     public void resize(Player player, float scale){
-        scaleType.getScaleData(player).setScale(scale);
-        scaleType.getScaleData(player).markForSync(true);
+        scaleType.getScaleData(player).setTargetScale(scale);
     }
     public void resetSize(Player player){
-        scaleType.getScaleData(player).resetScale();
+        scaleType.getScaleData(player).setTargetScale(1F);
     }
 }
